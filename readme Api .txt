@@ -42,6 +42,5 @@ api/v1/ user_view/<int:user_pk>/ [name='user_view']
 
 
 ######## Доступ к документации API:
-    ^swagger(?P<format>\.json|\.yaml) [name='schema-json']
     ^swagger/ [name='schema-swagger-ui']
     ^redoc/ [name='schema-redoc']
