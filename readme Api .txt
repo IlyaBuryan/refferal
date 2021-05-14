@@ -1,3 +1,5 @@
+﻿http://89.108.71.100:8004/api/v1/user_auth/
+http://89.108.71.100:8004/swagger/
 
 ######## POST Запрос на отправку проврочного кода. Принимает и валидизирует номер телефона.
 ######## Создает в базе пользователя с id и check_code
@@ -42,5 +44,6 @@ api/v1/ user_view/<int:user_pk>/ [name='user_view']
 
 
 ######## Доступ к документации API:
-    ^swagger/ [name='schema-swagger-ui']
-    ^redoc/ [name='schema-redoc']
+http://89.108.71.100:8004/swagger/
+http://89.108.71.100:8004/swagger.json
+http://89.108.71.100:8004/redoc/

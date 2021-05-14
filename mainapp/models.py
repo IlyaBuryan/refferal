@@ -36,8 +36,7 @@ class User(AbstractBaseUser):
                                 validators=[validate_phone])
     self_invite_code = models.CharField(max_length=6,
                                         verbose_name='Ваш код',
-                                        blank=True,
-                                        unique=True)
+                                        blank=True)
     other_invite_code = models.CharField(max_length=6,
                                          verbose_name='Чужой код',
                                          blank=True,
