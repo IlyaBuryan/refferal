@@ -31,7 +31,7 @@ def validate_code(value):
 
 
 class User(AbstractBaseUser):
-    phone = models.IntegerField(unique=True,
+    phone = models.BigIntegerField(unique=True,
                                 verbose_name='Номер телефона',
                                 validators=[validate_phone])
     self_invite_code = models.CharField(max_length=6,
