@@ -20,14 +20,14 @@ def validate_phone(value):
         if not carrier._is_mobile(number_type(number)):
             raise ValidationError
     except:
-        raise ValidationError('Вы ввели некорректный номер телефона')
+        raise ValidationError('Incorrect phone number')
 
 
 def validate_code(value):
     try:
         User.objects.get(self_invite_code=value)
     except:
-        raise ValidationError('Вы ввели некорректный код-приглашение')
+        raise ValidationError('Incorrect phone code')
 
 
 class User(AbstractBaseUser):
