@@ -1,11 +1,10 @@
-﻿http://89.108.71.100:8004/api/v1/user_auth/
-http://89.108.71.100:8004/swagger/
-
+﻿
 ######## POST Запрос на отправку проврочного кода. Принимает и валидизирует номер телефона.
 ######## Создает в базе пользователя с id и check_code
 
 Запрос:
 api/v1/user_auth/ [name='user_auth']
+http://89.108.71.100:8004/api/v1/user_auth/
 
 Формат:
 {
@@ -21,8 +20,8 @@ api/v1/check_code/ [name='check_code']
 
 Формат:
 {
-    "phone": "79099654777",
-    "check_code": "3697"
+    "phone": "79099654778",
+    "check_code": "2399"
 }
 
 ######## POST Запрос изменения чужого other_invite_code. Принимает и валидизирует invite_code + token авторизации.
@@ -33,14 +32,14 @@ api/v1/user_update/<int:pk>/ [name='user_update']
 
 Формат:
 {
-    "phone": "79099654777",
-    "check_code": "fgG4k8"
+    "other_invite_code": "YoYTyU"
 }
+
 
 ######## GET Запрос на вывод данных пользователя по id + всех связанных с ним по его self_invite_code юзерами.
 
 Запрос:
-api/v1/ user_view/<int:user_pk>/ [name='user_view']
+api/v1/user_view/<int:user_pk>/ [name='user_view']
 
 
 ######## Доступ к документации API:

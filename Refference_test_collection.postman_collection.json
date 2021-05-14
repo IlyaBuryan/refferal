@@ -1,0 +1,1038 @@
+{
+	"info": {
+		"_postman_id": "feeb5bfd-209a-4254-b3a5-3c61580082ab",
+		"name": "Refference_test_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Incorrect input api/v1/user_auth/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"99776\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/user_auth/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"user_auth",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Incorrect input api/v1/user_auth/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"99776\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/user_auth/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"user_auth",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 14:05:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"phone\": [\n            \"Incorrect phone number\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Correct api/v1/user_auth/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"79099654776\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/user_auth/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"user_auth",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Correct api/v1/user_auth/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"79099654779\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/user_auth/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"user_auth",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 14:14:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"8452 Check code sent to the phone\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Correct TOKEN api/v1/check_code/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"79099654778\",\r\n    \"check_code\": \"2399\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/check_code/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"check_code",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Correct TOKEN api/v1/check_code/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"79099654779\",\r\n    \"check_code\": \"8452\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/check_code/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"check_code",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 15:20:05 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "53"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"52631190929b60ce4ef27be4814b533cb03f67d1\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Incorrect receive TOKEN api/v1/check_code/",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"79099654778\",\r\n    \"check_code\": \"2369\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/check_code/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"check_code",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Incorrect receive TOKEN api/v1/check_code/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\": \"79099654779\",\r\n    \"check_code\": \"8462\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/check_code/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"check_code",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 14:59:14 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"Phone number or code is not valid\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Auth Without Token api/v1/check_code/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/user_view/15/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"user_view",
+						"15",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Auth Without Token api/v1/check_code/",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/user_view/15/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"user_view",
+								"15",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 15:23:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Token"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Authentication credentials were not provided.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Auth With Token api/v1/check_code/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/user_view/15/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"user_view",
+						"15",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Auth With Token api/v1/check_code/",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/user_view/14/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"user_view",
+								"14",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 15:31:25 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "80"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"current_user\": [\n        [\n            14,\n            79099654778,\n            \"Fh7l1q\",\n            \"\"\n        ]\n    ],\n    \"invited_users_numbers\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Update With Token api/v1/check_code/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/user_update/15/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"user_update",
+						"15",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update With Token api/v1/check_code/",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"YoYTyU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/user_update/15/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"user_update",
+								"15",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 15:29:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "38"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, PATCH, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 15,\n    \"other_invite_code\": \"YoYTyU\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Unsucces Update Without Token api/v1/check_code/",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"other_invite_code\": \"YoYTyU\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/user_update/15/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"user_update",
+						"15",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Unsucces Update Without Token api/v1/check_code/",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 52631190929b60ce4ef27be4814b533cb03f67d1",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"YoYTyU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/user_update/15/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"user_update",
+								"15",
+								""
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 May 2021 15:29:06 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "WWW-Authenticate",
+							"value": "Token"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, PATCH, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Authentication credentials were not provided.\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
