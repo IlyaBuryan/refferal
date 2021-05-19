@@ -47,9 +47,9 @@ class UserUpdateView(generics.UpdateAPIView):
     def update(self, request, *args, **kwargs):
         user = User.objects.get(id=kwargs['pk'])
         token_user = Token.objects.get(user=user)
-        token_request = request.META.get("HTTP_TOKEN", "")
+        token_request = request.META.get("HTTP_TOKEN")
         if token_user != token_request:
-            raise ValidationError('This is not your profile')
+            raise ValidationError(f'{token_user} {token_request}This is not your profile')
         elif user.other_invite_code:
             raise ValidationError('Code already exists')
         elif request.data['other_invite_code'] == user.self_invite_code:
