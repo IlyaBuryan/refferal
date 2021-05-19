@@ -2,6 +2,7 @@ import time
 
 from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
 
@@ -39,15 +40,15 @@ class UserUpdateView(generics.UpdateAPIView):
     serializer_class = UserUpdateSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def get_object(self):
-        return get_object_or_404(User, id=self.kwargs['pk'])
+    def get_queryset(self):
+        return User.objects.filter(id=self.kwargs['pk'])
 
     def update(self, request, *args, **kwargs):
         user = User.objects.get(id=kwargs['pk'])
         if user.other_invite_code:
-            raise ValueError('Code already exists')
-        if request.data['other_invite_code'] == user.self_invite_code:
-            raise ValueError('This code is yours')
+            raise ValidationError('Code already exists')
+        elif request.data['other_invite_code'] == user.self_invite_code:
+            raise ValidationError('This code is yours')
         return super().update(request, *args, **kwargs)
 
 
@@ -57,7 +58,7 @@ def auth_user(request):
         serializer = UserLoginSerializer(data=request.data)
         if serializer.is_valid():
             # Check and delete previous check data
-            phone = request.data.get('phone')
+            phone = request.data.get('phone', None)
             current_code = UserLogin.objects.filter(phone=phone).first()
             if current_code is not None:
                 current_code.delete()
