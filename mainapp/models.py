@@ -27,13 +27,27 @@ def validate_code(value):
     try:
         User.objects.get(self_invite_code=value)
     except:
-        raise ValidationError('Incorrect phone code')
+        raise ValidationError('Incorrect check_code')
+
+
+class UserLogin(models.Model):
+    phone = models.BigIntegerField(verbose_name='Номер телефона',
+                                   validators=[validate_phone])
+    check_code = models.CharField(max_length=4, blank=True)
+    created_time = models.DateTimeField(auto_now_add=True)
+
+    @staticmethod
+    def generate_check_code():
+        return ''.join(
+            [random.choice(list('123456789')) for _ in range(4)])
+
+    def __str__(self):
+        return str(self.phone)
 
 
 class User(AbstractBaseUser):
     phone = models.BigIntegerField(unique=True,
-                                verbose_name='Номер телефона',
-                                validators=[validate_phone])
+                                   verbose_name='Номер телефона')
     self_invite_code = models.CharField(max_length=6,
                                         verbose_name='Ваш код',
                                         blank=True)
@@ -41,7 +55,6 @@ class User(AbstractBaseUser):
                                          verbose_name='Чужой код',
                                          blank=True,
                                          validators=[validate_code])
-    check_code = models.CharField(max_length=4, blank=True)
 
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = []
@@ -70,11 +83,6 @@ class User(AbstractBaseUser):
                 [random.choice(list('123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM')) for _ in
                  range(6)])
         return invite_code
-
-    @staticmethod
-    def generate_check_code():
-        return ''.join(
-            [random.choice(list('123456789')) for _ in range(4)])
 
     @receiver(post_save, sender=settings.AUTH_USER_MODEL)
     def create_auth_token(sender, instance=None, created=False, **kwargs):

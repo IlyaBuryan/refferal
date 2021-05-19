@@ -1,10 +1,12 @@
 import time
+
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from django.http import JsonResponse
 
-from .serializers import UserSerializer, UserUpdateSerializer
-from .models import User
+from .serializers import UserSerializer, UserUpdateSerializer, UserLoginSerializer
+from .models import User, UserLogin
 from rest_framework import generics, permissions
 from rest_framework.authtoken.models import Token
 
@@ -35,19 +37,35 @@ def user_view(request, user_pk):
 
 class UserUpdateView(generics.UpdateAPIView):
     serializer_class = UserUpdateSerializer
-    queryset = User.objects.all()
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get_object(self):
+        return get_object_or_404(User, id=self.kwargs['pk'])
+
+    def update(self, request, *args, **kwargs):
+        user = User.objects.get(id=kwargs['pk'])
+        if user.other_invite_code:
+            raise ValueError('Code already exists')
+        if request.data['other_invite_code'] == user.self_invite_code:
+            raise ValueError('This code is yours')
+        return super().update(request, *args, **kwargs)
 
 
 @api_view(['POST'])
 def auth_user(request):
     if request.method == 'POST':
-        serializer = UserSerializer(data=request.data)
+        serializer = UserLoginSerializer(data=request.data)
         if serializer.is_valid():
-            check_code = User.generate_check_code()
+            # Check and delete previous check data
+            phone = request.data.get('phone')
+            current_code = UserLogin.objects.filter(phone=phone).first()
+            if current_code is not None:
+                current_code.delete()
+            # Create a new check information
+            check_code = UserLogin.generate_check_code()
             serializer.validated_data['check_code'] = check_code
-            time.sleep(2)  # sended check code to the phone
             serializer.save()
+            time.sleep(2)  # sended check code to the phone
             return JsonResponse({'result': f'{check_code} Check code sent to the phone'})
         else:
             return JsonResponse({'result': serializer.errors})
@@ -59,12 +77,17 @@ def check_code(request):
     code = request.data.get('check_code', None)
     if phone and code:
         try:
-            user = User.objects.get(phone=phone, check_code=code)
-            user.self_invite_code = User.generate_invite()
-            user.save()
+            user_login = UserLogin.objects.get(phone=phone, check_code=code)
+            user = User.objects.filter(phone=phone).first()
+            if user is None:
+                cur_user = User.objects.create(phone=phone, self_invite_code=User.generate_invite())
+                cur_user.save()
+                token = Token.objects.get(user=cur_user)
+            else:
+                token = Token.objects.get(user=user)
+            user_login.delete()
         except:
             return JsonResponse({'result': 'Phone number or code is not valid'})
-        token, _ = Token.objects.get_or_create(user=user)
         return JsonResponse({'token': token.key})
     else:
         return JsonResponse({'result': 'Phone number or code has not been sent'})
