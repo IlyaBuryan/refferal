@@ -1178,7 +1178,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Token 4f2afcaa3ff8a2cfc2531f6df94b0648f0020481",
+						"value": "Token 911516ccba450a4686388bbb8b81e2bd29112b11",
 						"type": "text"
 					}
 				],
@@ -1192,7 +1192,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://89.108.71.100:8004/api/v1/user_update/2/",
+					"raw": "http://89.108.71.100:8004/api/v1/user_update/6/",
 					"protocol": "http",
 					"host": [
 						"89",
@@ -1205,7 +1205,7 @@
 						"api",
 						"v1",
 						"user_update",
-						"2",
+						"6",
 						""
 					]
 				}
@@ -1297,6 +1297,149 @@
 					],
 					"cookie": [],
 					"body": "{\n    \"id\": 1,\n    \"other_invite_code\": \"AKGdq7\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update (other_profile) With Token api/v1/check_code/ Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token 4f2afcaa3ff8a2cfc2531f6df94b0648f0020481",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"other_invite_code\": \"FAw3pI\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://89.108.71.100:8004/api/v1/user_update/2/",
+					"protocol": "http",
+					"host": [
+						"89",
+						"108",
+						"71",
+						"100"
+					],
+					"port": "8004",
+					"path": [
+						"api",
+						"v1",
+						"user_update",
+						"2",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update (other_profile) With Token api/v1/check_code/ Copy",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 4f2afcaa3ff8a2cfc2531f6df94b0648f0020481",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"other_invite_code\": \"FAw3pI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://89.108.71.100:8004/api/v1/user_update/5/",
+							"protocol": "http",
+							"host": [
+								"89",
+								"108",
+								"71",
+								"100"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"v1",
+								"user_update",
+								"5",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 19 May 2021 09:01:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "28"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, PATCH, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"This is not your profile\"\n]"
 				}
 			]
 		}
