@@ -85,17 +85,15 @@ def check_code(request):
         try:
             user_login = UserLogin.objects.get(phone=phone, check_code=code)
             user = User.objects.filter(phone=phone).first()
-            id = user.id
             if user is None:
                 cur_user = User.objects.create(phone=phone, self_invite_code=User.generate_invite())
                 cur_user.save()
-                id = cur_user.id
                 token = Token.objects.get(user=cur_user)
             else:
                 token = Token.objects.get(user=user)
             user_login.delete()
         except:
             return JsonResponse({'result': 'Phone number or code is not valid'})
-        return JsonResponse({'token': token.key, 'id': id})
+        return JsonResponse({'token': token.key, 'id': token.user})
     else:
         return JsonResponse({'result': 'Phone number or code has not been sent'})
