@@ -94,6 +94,6 @@ def check_code(request):
             user_login.delete()
         except:
             return JsonResponse({'result': 'Phone number or code is not valid'})
-        return JsonResponse({'token': token.key, 'id': token.user})
+        return JsonResponse({'token': token.key, 'id': token.user_id})
     else:
         return JsonResponse({'result': 'Phone number or code has not been sent'})
